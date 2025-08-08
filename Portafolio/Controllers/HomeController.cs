@@ -1,27 +1,28 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Portafolio.Models;
+using Portafolio.Services;
 
 namespace Portafolio.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly RepositoryProjects repositoryProjects;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,
+                            RepositoryProjects repositoryProjects)
         {
             _logger = logger;
+            this.repositoryProjects = repositoryProjects;
         }
 
         public IActionResult Index()
         {
-            var person = new Person
-            {
-                Name = "Dali Barragán",
-                Age = 25
-            }; 
-            
-            return View(person);
+            var repositoryProjects = new RepositoryProjects();
+            var projects = repositoryProjects.ObtainProjects().ToList();
+            var model = new HomeIndexViewModel() { Projects = projects };
+            return View(model);
         }
 
         public IActionResult Privacy()

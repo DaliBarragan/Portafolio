@@ -1,0 +1,27 @@
+@model IEnumerable<ProjectViewModel>
+@if(Model is not null){
+    <div class="text-center">
+        <h2>Projects</h2>
+        <p>Here I list some of my recent projects</p>
+    </div>
+    <div class="container">
+        <div class="row row-cols-1 rows-cols-md-3 g-4">
+            @foreach(var project in Model){
+                <div class="col">
+                    <div class="card h-100" style="width: 18rem;" >
+                        <img src="@project.ImgUrl" alt="Project Image" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">@project.Title</h5>
+                            <p>@project.Description</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="@project.Link" class="btn btn-primary" target="_blank" 
+                            rel="noopener noreferrer">Check it!</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+}
