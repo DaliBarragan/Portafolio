@@ -1,8 +1,18 @@
-﻿@{
+﻿@model Person
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">My name is @Model.Name (@Model.Age)</h1>
+    <h5>I'm a JR Full Stack Developer</h5> @* with a Bachelor's degree in Computer Engineering and a Diploma  *@
+    @* Here goes the img of me *@
+</div>
+@*Add image of a banner just to make it more pleasable to the view*@
+<div class="row justify-content-center text-center bg-secondary">
+    <div class="col col-md-7 my-2 mx-2 text-white">
+        <h3 class="my-3">Welcome to my portafolio.</h3>
+        <p>I recently finished my Software Engineer degree and I have 3 years of experience in Full Stack development. 
+        Most of the software I've done is property of the companies I've worked for, however, I have studied on my own and I want to publish some of the things I've made.</p>
+    </div>
 </div>
